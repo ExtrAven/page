@@ -1,0 +1,45 @@
+{% extends "layouts/base.html" %}
+
+<!-- Title -->
+
+{% block title %} Principal {% endblock title %}
+
+<!-- Content -->
+
+{% block content %}
+
+<main>
+  <div class="container d-flex flex-column min-vh-100 text-dark bg-custom">
+    <div class="row">
+      <h1 class="my-3 text-center mb-4 display-3">
+        Proyecto de Empresa <br />
+        <span class="text-center fw-semibold display-1">Magency</span>
+      </h1>
+
+      {% for category in categories %}
+      <div class="col-6 col-lg-3 col-sm-4 mb-4">
+        <div class="card card-body bg-custom-2 shadow">
+          <a href="{% url 'category_detail' category.id %}">
+            <img
+              src="{{ category.image.url }}"
+              alt="{{ category.name }}"
+              class="img-fluid"
+            />
+          </a>
+          <p class="h3 text-center text-white mt-3">{{ category.name }}</p>
+          <div class="text-center">
+            <a
+              href="{% url 'category_detail' category.id %}"
+              class="btn btn-outline-primary btn-block text-center text-uppercase mt-2"
+            >
+              Ver Más
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+
+{% endblock content %}

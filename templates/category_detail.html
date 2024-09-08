@@ -1,0 +1,28 @@
+{% extends 'layouts/base2.html' %}
+
+<!-- Title -->
+
+{% block title %} {{ category.name }} {% endblock %}
+
+<!-- Content -->
+
+{% block content %}
+<div class="container min-vh-100 d-flex flex-column text-dark">
+  <div class="row">
+    <h3 class="text-center display-2 mb-4 mt-0">{{ category.name }}</h3>
+    {% for product in products %}
+    <div class="col-6 col-lg-3 col-sm-4 mb-4">
+      <div class="card card-body bg-dark shadow p-0 mt-3 border-0">
+        <a href="{{product.image.url}}"
+          ><img
+            src="{{ product.image.url }}"
+            alt="{{ category.name }}"
+            class="shadow rounded img-fluid"
+        /></a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
