@@ -1,7 +1,8 @@
 .bg-custom {
-  background-image: url("../bg/bg.jpeg");
+  background-image: url("../bg/bg2.jpeg");
+  background-attachment: fixed;
 }
 
 .bg-custom-2 {
-  background-color: rgba(0, 0, 0, 0.774);
+  background-color: #111111e5;
 }
