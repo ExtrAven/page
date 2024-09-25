@@ -6,19 +6,41 @@
 
 <!-- Content -->
 
-{% block content %} {% include 'partials/main-navbar.html'%}
+{% block content %}
 <main class="container mt-3">
+  {% if categories == None %}
+
+  <h1 class="text-center mb-5 display-1 fw-bold">No hay productos</h1>
+
+  {% else %}
+
   <h1 class="text-center mb-5 display-1 fw-bold">Productos</h1>
+
+  {% endif %}
   <div class="row">
     {% for category in categories %}
     <div class="col-6 col-lg-3 col-sm-4 mb-4">
-      <div class="card card-body w-100 bg-custom-2">
+      <div
+        class="card card-body bg-transparent border-0 shadow-custom rounded-4 px-2 pt-1"
+      >
+        <a
+          href="{% url 'category_detail' category.id %}"
+          class="card-text w-auto px-3 mx-auto text-center fs-2 text-nowrap border-bottom text-decoration-none text-white mb-3"
+        >
+          {{ category.name }}
+        </a>
         <a href="{% url 'category_detail' category.id %}">
           <img
             src="{{ category.image.url }}"
             alt="{{ category.name }}"
             class="img-fluid rounded"
           />
+        </a>
+        <a
+          href="{% url 'category_detail' category.id %}"
+          class="btn text-bg-dark rounded-pill mt-3 w-75 mx-auto"
+        >
+          Ver detalles
         </a>
       </div>
     </div>

@@ -6,6 +6,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         "name",
         "show_image",
+        "active",
     )
     search_fields = ("name",)
     list_filter = ("name",)

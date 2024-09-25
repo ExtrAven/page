@@ -2,19 +2,29 @@
   class="navbar rounded shadow-custom position-sticky top-0 navbar-dark mb-3 container-fluid z-1 bg-custom"
 >
   <div class="container-fluid">
-    <a href="#inicio" class="navbar-brand mb-3"
-      ><span class="display-1 text-magency">Magency</span></a
-    >
-    <form class="d-flex w-50" role="search">
-      <input
-        class="form-control rounded-end-0"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-      <button class="btn btn-dark rounded-start-0" type="submit">
-        <i class="bi bi-search"></i>
-      </button>
-    </form>
+    <div class="row min-vw-100">
+      <div class="col-md-4 mb-3 text-md-end text-start">
+        <a href="{% url 'index' %}" class="navbar-brand mb-3"
+          ><span class="display-1 ms-3">Magency</span></a
+        >
+      </div>
+      <div class="col-md-8 my-auto">
+        <form class="d-flex mb-1" role="search" method="get">
+          <div class="w-100 d-flex justify-content-center">
+            <input
+              value="{{ request.GET.search }}"
+              class="form-control rounded-end-0 w-50"
+              type="search"
+              name="search"
+              placeholder="Buscar..."
+              aria-label="Search"
+            />
+            <button class="btn btn-dark rounded-start-0" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </nav>

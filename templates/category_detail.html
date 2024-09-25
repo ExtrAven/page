@@ -18,25 +18,31 @@
       <div id="carouselExample" class="carousel slide carousel-fade">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img
-              src="{{ product.image_1.url }}"
-              class="d-block w-100"
-              alt="{{ category.name }}"
-            />
+            <a href="{{ product.image_1.url }}">
+              <img
+                src="{{ product.image_1.url }}"
+                class="d-block w-100"
+                alt="{{ category.name }}"
+              />
+            </a>
           </div>
           <div class="carousel-item">
-            <img
-              src="{{ product.image_2.url }}"
-              class="d-block w-100"
-              alt="{{ category.name }}"
-            />
+            <a href="{{ product.image_2.url }}">
+              <img
+                src="{{ product.image_2.url }}"
+                class="d-block w-100"
+                alt="{{ category.name }}"
+              />
+            </a>
           </div>
           <div class="carousel-item">
-            <img
-              src="{{ product.image_3.url }}"
-              class="d-block w-100"
-              alt="{{ category.name }}"
-            />
+            <a href="{{ product.image_3.url }}">
+              <img
+                src="{{ product.image_3.url }}"
+                class="d-block w-100"
+                alt="{{ category.name }}"
+              />
+            </a>
           </div>
         </div>
         <button

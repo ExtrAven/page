@@ -7,13 +7,20 @@ class Category(models.Model):
     name = models.CharField(max_length=50)
     category = models.CharField(
         choices=[
+            ("General", "General"),
             ("Hogar", "Hogar"),
             ("Muebles", "Muebles"),
+            ("Electrodomésticos", "Electrodomésticos"),
+            ("Juguetes", "Juguetes"),
+            ("Videojuegos", "Videojuegos"),
+            ("Computación", "Computación"),
+            ("Accesorios", "Accesorios"),
         ],
         max_length=50,
         default="General",
     )
     image = models.ImageField(null=True, blank=True, upload_to="category")
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -37,7 +44,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Pertenece a la categoría {self.category.name}"
+        return f"Pertenece a {self.category.name}"
 
     def show_image(self):
         return format_html(f'<img src="{self.image_1.url}" width="200" height="200" />')
