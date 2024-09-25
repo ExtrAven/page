@@ -39,12 +39,12 @@
 
     <!-- Custom CSS -->
 
-    <link rel="stylesheet" href="{% static "css/main.css" %}" />
+    <link rel="stylesheet" href={% static "css/style.css" %} />
   </head>
 
   <!-- Body -->
 
-  <body class="bg-custom d-flex flex-column min-vh-100 text-light">
+  <body class="bg-custom d-flex flex-column min-vh-100 text-light" id="inicio">
     <!-- Content -->
 
     {% block content %} {% endblock content %}
@@ -52,6 +52,8 @@
     <!-- Footer -->
 
     {% include "partials/footer.html"%}
+
+    <!-- Bootstrap JS -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

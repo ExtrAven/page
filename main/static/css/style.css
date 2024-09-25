@@ -1,0 +1,16 @@
+.bg-custom {
+  background-image: url("../bg/bg2.jpeg");
+  background-attachment: fixed;
+}
+
+.bg-custom-2 {
+  background-color: #111111e5;
+}
+
+.shadow-custom {
+  box-shadow: 0px 0px 15px #000;
+}
+
+.bg-light-custom {
+  background-color: #00000059;
+}
