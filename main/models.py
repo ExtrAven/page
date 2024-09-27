@@ -5,7 +5,22 @@ from django.utils.html import format_html
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to="category/", null=True, blank=True)
+    category = models.CharField(
+        choices=[
+            ("General", "General"),
+            ("Hogar", "Hogar"),
+            ("Muebles", "Muebles"),
+            ("Electrodomésticos", "Electrodomésticos"),
+            ("Juguetes", "Juguetes"),
+            ("Videojuegos", "Videojuegos"),
+            ("Computación", "Computación"),
+            ("Accesorios", "Accesorios"),
+        ],
+        max_length=50,
+        default="General",
+    )
+    image = models.ImageField(null=True, blank=True, upload_to="category")
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -22,13 +37,16 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    image = models.ImageField(upload_to="product/")
+    description = models.TextField(help_text="Descripción del producto")
+    image_1 = models.ImageField(null=True, blank=True, upload_to="product_1")
+    image_2 = models.ImageField(null=True, blank=True, upload_to="product_2")
+    image_3 = models.ImageField(null=True, blank=True, upload_to="product_3")
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Pertenece a la categoría {self.category.name}"
+        return f"Pertenece a {self.category.name}"
 
     def show_image(self):
-        return format_html(f'<img src="{self.image.url}" width="200" height="200" />')
+        return format_html(f'<img src="{self.image_1.url}" width="200" height="200" />')
 
     show_image.short_description = "Imagen"

@@ -9,17 +9,66 @@
 {% block content %}
 <main class="container">
   <div class="row">
-    <h3 class="text-center display-2 mb-4 mt-0">{{ category.name }}</h3>
     {% for product in products %}
-    <div class="col-6 col-lg-3 col-sm-4 mb-4">
-      <div class="card card-body bg-dark shadow p-0 mt-3 border-0">
-        <a href="{{product.image.url}}"
-          ><img
-            src="{{ product.image.url }}"
-            alt="{{ category.name }}"
-            class="shadow rounded img-fluid"
-        /></a>
+    <div
+      class="col-10 offset-1 offset-md-0 mb-3 mb-md-0 col-md-6 col-lg-4 my-auto"
+      data-bs-theme="dark"
+    >
+      <div id="carouselExample" class="carousel slide carousel-fade z-0">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="{{ product.image_1.url }}">
+              <img
+                src="{{ product.image_1.url }}"
+                class="d-block w-100"
+                alt="{{ category.name }}"
+              />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="{{ product.image_2.url }}">
+              <img
+                src="{{ product.image_2.url }}"
+                class="d-block w-100"
+                alt="{{ category.name }}"
+              />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="{{ product.image_3.url }}">
+              <img
+                src="{{ product.image_3.url }}"
+                class="d-block w-100"
+                alt="{{ category.name }}"
+              />
+            </a>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
+    </div>
+    <div class="my-auto col-md-6 col-lg-8 fw-bold text-center">
+      <h2 class="d-inline-block mb-md-3 fw-semibold border-bottom display-3">
+        {{ category.name }}
+      </h2>
+      <p class="lead my-auto mb-2">{{ product.description }}</p>
     </div>
     {% endfor %}
   </div>

@@ -7,33 +7,41 @@
 <!-- Content -->
 
 {% block content %}
+<main class="container mt-3">
+  {% if categories == None %}
 
-<main class="container">
+  <h1 class="text-center mb-5 display-1 fw-regular">No hay productos</h1>
+
+  {% else %}
+
+  <h1 class="text-center mb-5 display-1 fw-regular">Productos</h1>
+
+  {% endif %}
   <div class="row">
-    <h1 class="my-3 text-center mb-4 display-3">
-      Proyecto de Empresa <br />
-      <span class="text-center fw-semibold display-1">Magency</span>
-    </h1>
-
     {% for category in categories %}
     <div class="col-6 col-lg-3 col-sm-4 mb-4">
-      <div class="card card-body bg-custom-2 shadow">
+      <div
+        class="card card-body shadow-custom bg-dark bg-opacity-75 transition px-2"
+      >
+        <a
+          href="{% url 'category_detail' category.id %}"
+          class="card-text w-auto px-3 mx-auto text-center fs-2 text-nowrap border-bottom text-decoration-none text-white border-white fw-medium mb-3"
+        >
+          {{ category.name }}
+        </a>
         <a href="{% url 'category_detail' category.id %}">
           <img
             src="{{ category.image.url }}"
             alt="{{ category.name }}"
-            class="img-fluid"
+            class="img-fluid rounded"
           />
         </a>
-        <p class="h3 text-center text-white mt-3">{{ category.name }}</p>
-        <div class="text-center">
-          <a
-            href="{% url 'category_detail' category.id %}"
-            class="btn btn-outline-primary btn-block text-center text-uppercase mt-2"
-          >
-            Ver Más
-          </a>
-        </div>
+        <a
+          href="{% url 'category_detail' category.id %}"
+          class="btn btn btn-dark bg-gradient rounded-pill mt-3 mx-auto"
+        >
+          Ver detalles
+        </a>
       </div>
     </div>
     {% endfor %}
