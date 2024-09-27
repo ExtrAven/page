@@ -1,30 +1,36 @@
-<nav
-  class="navbar rounded shadow-custom position-sticky top-0 navbar-dark mb-3 container-fluid z-1 bg-custom"
->
-  <div class="container-fluid">
-    <div class="row min-vw-100">
-      <div class="col-md-4 mb-3 text-md-end text-start">
-        <a href="{% url 'index' %}" class="navbar-brand mb-3"
-          ><span class="display-1 ms-3">Magency</span></a
-        >
-      </div>
-      <div class="col-md-8 my-auto">
-        <form class="d-flex mb-1" role="search" method="get">
-          <div class="w-100 d-flex justify-content-center">
-            <input
-              value="{{ request.GET.search }}"
-              class="form-control rounded-end-0 w-50"
-              type="search"
-              name="search"
-              placeholder="Buscar..."
-              aria-label="Search"
-            />
-            <button class="btn btn-dark rounded-start-0" type="submit">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
+<header class="position-sticky top-0 z-1 shadow-custom-2">
+  <nav class="navbar navbar-expand-lg bg-dark bg-gradient" data-bs-theme="dark">
+    <div class="container-fluid px-md-5">
+      <a class="navbar-brand" href="#inicio"
+        ><span class="display-4">Magency</span></a
+      >
+      <button
+        class="navbar-toggler border-0 shadow"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
+        <form class="d-flex" role="search" method="GET">
+          <input
+            value="{{ request.GET.search }}"
+            class="form-control border-0 me-2"
+            type="search"
+            name="search"
+            placeholder="Buscar..."
+            aria-label="Search"
+          />
+          <button class="btn btn-dark rounded" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
         </form>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>

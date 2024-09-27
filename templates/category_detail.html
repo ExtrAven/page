@@ -9,13 +9,12 @@
 {% block content %}
 <main class="container">
   <div class="row">
-    <h3 class="text-center display-2 mb-4 mt-0">{{ category.name }}</h3>
     {% for product in products %}
     <div
-      class="col-10 offset-1 offset-md-0 mb-3 mb-md-0 col-md-6 col-lg-4"
+      class="col-10 offset-1 offset-md-0 mb-3 mb-md-0 col-md-6 col-lg-4 my-auto"
       data-bs-theme="dark"
     >
-      <div id="carouselExample" class="carousel slide carousel-fade">
+      <div id="carouselExample" class="carousel slide carousel-fade z-0">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <a href="{{ product.image_1.url }}">
@@ -65,8 +64,11 @@
         </button>
       </div>
     </div>
-    <div class="col-md-6 col-lg-8 my-5 my-md-auto fw-bold text-center">
-      <h3>{{product.description}}</h3>
+    <div class="my-auto col-md-6 col-lg-8 fw-bold text-center">
+      <h2 class="d-inline-block mb-md-3 fw-semibold border-bottom display-3">
+        {{ category.name }}
+      </h2>
+      <p class="lead my-auto mb-2">{{ product.description }}</p>
     </div>
     {% endfor %}
   </div>
