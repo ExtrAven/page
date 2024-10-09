@@ -12,9 +12,7 @@ def index(request):
 
     if queryset:
         category = Category.objects.filter(
-            Q(name__icontains=queryset)
-            | Q(category__icontains=queryset)
-            | Q(product__description__icontains=queryset)
+            Q(name__icontains=queryset) | Q(product__description__icontains=queryset)
         )
         if not category:
             category = None

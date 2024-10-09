@@ -23,25 +23,15 @@
       <div
         class="card card-body shadow-custom bg-dark bg-opacity-75 transition px-2"
       >
-        <a
-          href="{% url 'category_detail' category.id %}"
-          class="card-text w-auto px-3 mx-auto text-center fs-2 text-nowrap border-bottom text-decoration-none text-white border-white fw-medium mb-3"
-        >
-          {{ category.name }}
-        </a>
-        <a href="{% url 'category_detail' category.id %}">
+        <a href="{% url 'category_detail' category.id %}" class="mx-auto">
           <img
             src="{{ category.image.url }}"
             alt="{{ category.name }}"
             class="img-fluid rounded"
+            id="index-image"
           />
         </a>
-        <a
-          href="{% url 'category_detail' category.id %}"
-          class="btn btn btn-dark bg-gradient rounded-pill mt-3 mx-auto"
-        >
-          Ver detalles
-        </a>
+        <p class="text-success text-end h1 mt-2 mb-0">${{ category.price }}</p>
       </div>
     </div>
     {% endfor %}

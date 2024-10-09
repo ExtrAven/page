@@ -10,69 +10,51 @@
 <main class="container">
   <div class="row">
     {% for product in products %}
-    <div
-      class="col-10 offset-1 offset-md-0 mb-3 mb-md-0 col-md-6 col-lg-4"
-      data-bs-theme="dark"
-    >
-      <div
-        id="carouselExample"
-        class="carousel slide carousel-fade z-0 mt-md-5"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <a href="{{ product.image_1.url }}">
-              <img
-                src="{{ product.image_1.url }}"
-                class="d-block w-100"
-                alt="{{ category.name }}"
-              />
-            </a>
-          </div>
-          <div class="carousel-item">
-            <a href="{{ product.image_2.url }}">
-              <img
-                src="{{ product.image_2.url }}"
-                class="d-block w-100"
-                alt="{{ category.name }}"
-              />
-            </a>
-          </div>
-          <div class="carousel-item">
-            <a href="{{ product.image_3.url }}">
-              <img
-                src="{{ product.image_3.url }}"
-                class="d-block w-100"
-                alt="{{ category.name }}"
-              />
-            </a>
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExample"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExample"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+    <div class="col-10 offset-1 offset-md-0 mb-3 mb-md-0 col-md-6 col-lg-4">
+      <a href="{{ product.category.image.url }}">
+        <img
+          src="{{ product.category.image.url }}"
+          class="d-block w-100"
+          alt="{{ category.name }}"
+        />
+      </a>
     </div>
     <div class="my-auto col-md-6 col-lg-8 fw-bold text-center">
       <h2 class="d-inline-block mb-md-3 fw-semibold border-bottom display-3">
         {{ category.name }}
       </h2>
       <p class="lead my-auto mb-2">{{ product.description }}</p>
+      {% if product.length and product.width %}
+      <p class="lead text-start mt-5 mb-2">
+        <span class="fw-bold">Medidas:</span>
+        <span class="fw-bold">{{ product.length }}</span> pulgadas de alto y
+        <span class="fw-bold">{{ product.width }}</span>
+        pulgadas de ancho
+      </p>
+      {% endif %} {% if product.radius %}
+      <p class="lead my-auto mb-2">
+        <span class="fw-bold">Medidas:</span>
+        <span class="fw-bold">{{ product.radius }}</span> pulgadas de radio
+      </p>
+      {% endif %}
     </div>
+    <p class="text-center mt-5">
+      -Incluye transportación en el municipio Nueva Paz
+    </p>
+    <h4 class="h2 mt-5 text-center">
+      El Precio del producto es:
+      <span class="text-success">${{ category.price }}</span>
+    </h4>
+    <h4 class="mt-5 h1 text-center">
+      Está interesado en adquirir el producto?
+    </h4>
+
+    <a
+      class="btn btn-primary w-50 mx-auto mt-2 mb-5"
+      href="https://wa.me/+5358220342"
+      >Contáctenos aquí</a
+    >
+
     {% endfor %}
   </div>
 </main>

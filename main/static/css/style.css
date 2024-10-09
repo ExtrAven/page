@@ -27,3 +27,33 @@ body {
 .shadow-custom-2 {
   box-shadow: 0px 0px 15px #000;
 }
+
+@media (max-width: 424px) {
+  #index-image {
+    height: 180px;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+  #index-image {
+    height: 230px;
+  }
+}
+
+@media (min-width: 768px) {
+  #index-image {
+    height: 280px;
+  }
+}
+
+@media (min-width: 992px) {
+  #index-image {
+    height: 280px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #index-image {
+    height: 400px;
+  }
+}
