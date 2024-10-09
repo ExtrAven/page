@@ -31,7 +31,14 @@
             id="index-image"
           />
         </a>
-        <p class="text-success text-end h1 mt-2 mb-0">${{ category.price }}</p>
+        <a
+          class="text-decoration-none m-0"
+          href="{% url 'category_detail' category.id %}"
+        >
+          <p class="text-success text-end h1 mt-2 mb-0">
+            ${{ category.price }}
+          </p>
+        </a>
       </div>
     </div>
     {% endfor %}
