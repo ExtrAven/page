@@ -9,7 +9,7 @@ class CategoryAdmin(admin.ModelAdmin):
         "active",
     )
     search_fields = ("name",)
-    list_filter = ("name",)
+    list_filter = ("name", "active")
 
 
 class ProductAdmin(admin.ModelAdmin):
