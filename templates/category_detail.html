@@ -20,21 +20,34 @@
       </a>
     </div>
     <div class="my-auto col-lg-8 fw-bold text-center">
-      <h2 class="d-inline-block mb-lg-3 fw-semibold border-bottom display-3">
+      <h2
+        class="d-inline-block mb-lg-3 fw-semibold border-bottom px-3 display-3"
+      >
         {{ category.name }}
       </h2>
       <p class="lead my-auto mb-2">{{ product.description }}</p>
       {% if product.length and product.width %}
       <p class="lead text-start text-center mt-5 mb-2">
         <span class="fw-bold">Medidas:</span>
-        <span class="fw-bold">{{ product.length }}</span> pulgadas de alto y
+        Cuenta con
+        <span class="fw-bold">{{ product.length }}</span> centímetros de alto y
         <span class="fw-bold">{{ product.width }}</span>
-        pulgadas de ancho
+        centímetros de ancho
       </p>
-      {% endif %} {% if product.radius %}
+      {% endif %} {% if product.radius and not product.length %}
       <p class="lead my-auto mb-2 text-center">
         <span class="fw-bold">Medidas:</span>
-        <span class="fw-bold">{{ product.radius }}</span> pulgadas de radio
+        Cuenta con
+        <span class="fw-bold">{{ product.radius }}</span> centímetros de
+        diámetro
+      </p>
+      {% endif %} {% if product.length and product.radius %}
+      <p class="lead my-auto mb-2 text-center">
+        <span class="fw-bold">Medidas:</span>
+        Cuenta con
+        <span class="fw-bold">{{ product.length }}</span> centímetros de alto y
+        <span class="fw-bold">{{ product.radius }}</span> centímetros de
+        diámetro
       </p>
       {% endif %}
     </div>

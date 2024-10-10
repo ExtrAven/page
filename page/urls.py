@@ -20,8 +20,10 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from . import settings
 
+app_name = "page"
+
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("admin/", admin.site.urls, name="admin"),
     path("", include("main.urls")),
 ]
 

@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from .models import *
 from django.db.models import Q
+from django.contrib.auth.models import User
 
 
 # Create your views here.
 def index(request):
     category = Category.objects.filter(active=True)
     queryset = request.GET.get("search")
+    user = User.is_staff
     if not category:
         category = None
 
@@ -17,7 +19,7 @@ def index(request):
         if not category:
             category = None
 
-    return render(request, "index.html", {"categories": category})
+    return render(request, "index.html", {"categories": category, "user": user})
 
 
 def category_detail(request, id):

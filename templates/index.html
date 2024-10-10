@@ -23,7 +23,11 @@
       <div
         class="card card-body shadow-custom bg-dark bg-opacity-75 transition px-2"
       >
-        <a href="{% url 'category_detail' category.id %}" class="mx-auto">
+        <a
+          href="{% url 'category_detail' category.id %}"
+          class="mx-auto d-grid"
+          id="index-image"
+        >
           <img
             src="{{ category.image.url }}"
             alt="{{ category.name }}"

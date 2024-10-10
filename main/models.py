@@ -26,9 +26,9 @@ class Category(models.Model):
 class Product(models.Model):
     description = models.TextField(help_text="Descripción del producto")
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    length = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-    width = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-    radius = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    length = models.DecimalField(max_digits=10, decimal_places=0, default=0)
+    width = models.DecimalField(max_digits=10, decimal_places=0, default=0)
+    radius = models.DecimalField(max_digits=10, decimal_places=0, default=0)
 
     def __str__(self):
         return f"Pertenece a {self.category.name}"

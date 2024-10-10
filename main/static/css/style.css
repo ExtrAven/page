@@ -28,13 +28,13 @@ body {
   box-shadow: 0px 0px 15px #000;
 }
 
-@media (max-width: 424px) {
+@media (max-width: 425px) {
   #index-image {
     height: 180px;
   }
 }
 
-@media (min-width: 425px) and (max-width: 768px) {
+@media (min-width: 426px) and (max-width: 768px) {
   #index-image {
     height: 230px;
   }
